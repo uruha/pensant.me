@@ -13,6 +13,13 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Noto Serif JP\:400,700`],
+        display: "swap",
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
@@ -63,21 +70,14 @@ module.exports = {
         name: `En pensant`,
         short_name: `思考`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#f8f4e6`,
+        background_color: `#f8f4e6`,
+        theme_color: `#0d0015`,
         display: `minimal-ui`,
         icon: `content/assets/icon.png`,
-      },
-    },
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-};
+}

@@ -1,0 +1,127 @@
+:root {
+  --basic-fixed-val: 36px;
+  --main-color: #f8f4e6;
+}
+html, body { height: 100%; }
+body {
+  font-family:
+      "Noto Serif JP",
+      "Helvetica Neue",
+      Arial,
+      "Hiragino Kaku Gothic ProN",
+      "Hiragino Sans",
+      Meiryo,
+      sans-serif;
+  font-size: 100%;
+  font-feature-settings: 'pkna';
+  color: #0d0015;
+  background-color: var(--main-color);
+}
+a:link {
+  color: #4d5aaf;
+}
+a:visited {
+  color: #9d5b8b;
+}
+.basic-skelton {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: var(--basic-fixed-val) auto var(--basic-fixed-val);
+  grid-template-areas:
+      "header "
+      "main   "
+      "footer ";
+  background-color: var(--main-color);
+}
+.header-skelton {
+  grid-area: header;
+  max-height: var(--basic-fixed-val);
+  overflow: hidden;
+}
+.main-skelton {
+  grid-area: main;
+}
+.footer-skelton {
+  grid-area: footer;
+  max-height: var(--basic-fixed-val);
+  overflow: hidden;
+}
+.header {
+  height: var(--basic-fixed-val);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1px 0 0 0;
+}
+.logo {
+  padding: 0 0 0 1vw;
+}
+.logo img {
+  width: 20px;
+  height: 20px;
+}
+.header.--top {
+  justify-content: center;
+}
+.title {
+  font-size: 0.65rem;
+}
+p.title {
+  padding: 0 1vw 0 0;
+  margin: 0;
+}
+p.title span {
+  font-weight: bold;
+}
+.document-skelton {
+  /** writting set */
+  writing-mode: vertical-rl;
+  line-height: 1.9;
+  letter-spacing: 0.03em;
+  /** container set */
+  width: 100vw;
+  height: calc(100% - var(--basic-fixed-val) * 2);
+  overflow-y: scroll;
+  /** hidden scroll bar */
+  scrollbar-width: none;
+}
+/** hidden scroll bar */
+.document-skelton::-webkit-scrollbar {
+  display:none;
+}
+.document {
+  padding: calc(var(--basic-fixed-val)* 1.5) calc(var(--basic-fixed-val) * 3);
+}
+.document p {
+  text-indent: 1rem;
+  font-size: 1.25rem;
+}
+.document li {
+  font-size: 1.25rem;
+}
+.footer {
+  text-align: center;
+}
+.copyright {
+  font-size: .75rem;
+}
+.footer.--article {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.footer.--article .copyright {
+  padding: 0 0 0 1vw;
+}
+.article-navi {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0 1vw 0 0;
+  list-style: none;
+}
+.article-navi .archive {
+  font-size: .75rem;
+  padding: 0 8px;
+}

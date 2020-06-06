@@ -44,7 +44,7 @@ const BlogIndex = ({ data, location, pageContext }: PageProps<Data>) => {
           <article key={node.fields.slug}>
             <header>
               <h2>
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                <Link to={node.fields.slug}>
                   {title}
                 </Link>
               </h2>
