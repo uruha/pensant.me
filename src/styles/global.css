@@ -1,5 +1,6 @@
 :root {
   --basic-fixed-val: 36px;
+  --main-color: #f8f4e6;
 }
 html, body { height: 100%; }
 body {
@@ -13,7 +14,8 @@ body {
       sans-serif;
   font-size: 100%;
   font-feature-settings: 'pkna';
-  background-color: #f8f4e6;
+  color: #0d0015;
+  background-color: var(--main-color);
 }
 a:link {
   color: #4d5aaf;
@@ -30,7 +32,7 @@ a:visited {
       "header "
       "main   "
       "footer ";
-  background-color: #f8f4e6;
+  background-color: var(--main-color);
 }
 .header-skelton {
   grid-area: header;

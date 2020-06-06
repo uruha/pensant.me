@@ -24,9 +24,9 @@ const Layout = ({ location, title, pageContext, children }) => {
     header = (
       <div className="header">
         <div className="logo">
-          <a>
+          <Link to={rootPath}>
             <img src="/logo.svg" alt="logo" />
-          </a>
+          </Link>
         </div>
         <p className="title">
           思考 / <span>{title}</span>
