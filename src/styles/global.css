@@ -91,7 +91,7 @@ p.title span {
   display:none;
 }
 .document {
-  padding: calc(var(--basic-fixed-val)* 1.5) calc(var(--basic-fixed-val) * 3);
+  padding: calc(var(--basic-fixed-val)* 1) calc(var(--basic-fixed-val) * 3);
 }
 .document p {
   text-indent: 1rem;
