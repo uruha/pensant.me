@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const SEO = ({ description, lang, meta, title }) => {
+const SEO = ({ description, lang, meta, title, shareImagePath }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -30,7 +30,9 @@ const SEO = ({ description, lang, meta, title }) => {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const imageUrl = `${site.siteMetadata.siteUrl}${site.siteMetadata.social.image}`
+  const imageUrl = shareImagePath
+    ? `${site.siteMetadata.siteUrl}${shareImagePath}`
+    : `${site.siteMetadata.siteUrl}${site.siteMetadata.social.image}`
 
   return (
     <Helmet
@@ -89,6 +91,7 @@ SEO.defaultProps = {
   lang: `ja`,
   meta: [],
   description: ``,
+  shareImagePath: null,
 }
 
 SEO.propTypes = {
