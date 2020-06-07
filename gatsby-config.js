@@ -5,10 +5,11 @@ module.exports = {
       name: `Kotaro Chiba`,
       summary: `頭の中`,
     },
-    description: `日々考えている自身の思考を表現する場所。`,
+    description: `日々の思考を表現する場所。`,
     siteUrl: `https://pensant.me`,
     social: {
-      twitter: `ur_uha`,
+      twitter: `@ur_uha`,
+      image: `/logo.png`,
     },
   },
   plugins: [

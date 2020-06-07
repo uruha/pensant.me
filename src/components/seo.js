@@ -18,8 +18,10 @@ const SEO = ({ description, lang, meta, title }) => {
           siteMetadata {
             title
             description
+            siteUrl
             social {
               twitter
+              image
             }
           }
         }
@@ -28,11 +30,12 @@ const SEO = ({ description, lang, meta, title }) => {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const imageUrl = `${site.siteMetadata.siteUrl}${site.siteMetadata.social.image}`
 
   return (
     <Helmet
       htmlAttributes={{
-        lang: `ja`,
+        lang,
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
@@ -54,11 +57,15 @@ const SEO = ({ description, lang, meta, title }) => {
           content: `website`,
         },
         {
+          name: `og:image`,
+          content: imageUrl,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
         {
-          name: `twitter:creator`,
+          name: `twitter:site`,
           content: site.siteMetadata.social.twitter,
         },
         {
@@ -69,13 +76,17 @@ const SEO = ({ description, lang, meta, title }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `twitter:image`,
+          content: imageUrl,
+        },
       ].concat(meta)}
     />
   )
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `ja`,
   meta: [],
   description: ``,
 }
