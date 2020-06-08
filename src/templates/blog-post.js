@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
+  console.log(post.frontmatter.featureimage);
 
   return (
     <Layout
@@ -17,7 +18,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
         // @TODO
-        // shareImage={post.frontmatter.featureimage.relativePath}
+        shareImagePath={post.frontmatter.featureimage}
       />
       <article>
         <header>
@@ -47,6 +48,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        featureimage
       }
     }
   }

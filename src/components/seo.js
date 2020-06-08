@@ -33,6 +33,7 @@ const SEO = ({ description, lang, meta, title, shareImagePath }) => {
   const imageUrl = shareImagePath
     ? `${site.siteMetadata.siteUrl}${shareImagePath}`
     : `${site.siteMetadata.siteUrl}${site.siteMetadata.social.image}`
+  console.log(imageUrl);
 
   return (
     <Helmet
