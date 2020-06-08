@@ -49,7 +49,7 @@ const SEO = ({ description, lang, meta, title, shareImagePath }) => {
         },
         {
           property: `og:title`,
-          content: title,
+          content: `${title} | ${site.siteMetadata.title}`,
         },
         {
           property: `og:description`,
@@ -64,24 +64,12 @@ const SEO = ({ description, lang, meta, title, shareImagePath }) => {
           content: imageUrl,
         },
         {
-          property: `twitter:card`,
+          name: `twitter:card`,
           content: `summary`,
         },
         {
-          property: `twitter:site`,
+          name: `twitter:site`,
           content: site.siteMetadata.social.twitter,
-        },
-        {
-          property: `twitter:title`,
-          content: site.siteMetadata.title,
-        },
-        {
-          property: `twitter:description`,
-          content: metaDescription,
-        },
-        {
-          property: `twitter:image`,
-          content: imageUrl,
         },
       ].concat(meta)}
     />
