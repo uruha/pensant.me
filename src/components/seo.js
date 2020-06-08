@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const SEO = ({ description, lang, meta, title }) => {
+const SEO = ({ description, lang, meta, title, shareImagePath }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -30,7 +30,10 @@ const SEO = ({ description, lang, meta, title }) => {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const imageUrl = `${site.siteMetadata.siteUrl}${site.siteMetadata.social.image}`
+  const imageUrl = shareImagePath
+    ? `${site.siteMetadata.siteUrl}${shareImagePath}`
+    : `${site.siteMetadata.siteUrl}${site.siteMetadata.social.image}`
+  console.log(imageUrl);
 
   return (
     <Helmet
@@ -57,27 +60,27 @@ const SEO = ({ description, lang, meta, title }) => {
           content: `website`,
         },
         {
-          name: `og:image`,
+          property: `og:image`,
           content: imageUrl,
         },
         {
-          name: `twitter:card`,
+          property: `twitter:card`,
           content: `summary`,
         },
         {
-          name: `twitter:site`,
+          property: `twitter:site`,
           content: site.siteMetadata.social.twitter,
         },
         {
-          name: `twitter:title`,
-          content: title,
+          property: `twitter:title`,
+          content: site.siteMetadata.title,
         },
         {
-          name: `twitter:description`,
+          property: `twitter:description`,
           content: metaDescription,
         },
         {
-          name: `twitter:image`,
+          property: `twitter:image`,
           content: imageUrl,
         },
       ].concat(meta)}
@@ -89,6 +92,7 @@ SEO.defaultProps = {
   lang: `ja`,
   meta: [],
   description: ``,
+  shareImagePath: null,
 }
 
 SEO.propTypes = {
