@@ -5,10 +5,10 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import React from "react";
+import PropTypes from "prop-types";
+import { Helmet } from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ description, lang, meta, title, shareImagePath }) => {
   const { site } = useStaticQuery(
@@ -26,14 +26,13 @@ const SEO = ({ description, lang, meta, title, shareImagePath }) => {
           }
         }
       }
-    `
-  )
+    `,
+  );
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = description || site.siteMetadata.description;
   const imageUrl = shareImagePath
     ? `${site.siteMetadata.siteUrl}${shareImagePath}`
-    : `${site.siteMetadata.siteUrl}${site.siteMetadata.social.image}`
-  console.log(imageUrl);
+    : `${site.siteMetadata.siteUrl}${site.siteMetadata.social.image}`;
 
   return (
     <Helmet
@@ -73,21 +72,21 @@ const SEO = ({ description, lang, meta, title, shareImagePath }) => {
         },
       ].concat(meta)}
     />
-  )
-}
+  );
+};
 
 SEO.defaultProps = {
   lang: `ja`,
   meta: [],
   description: ``,
   shareImagePath: null,
-}
+};
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
-}
+};
 
-export default SEO
+export default SEO;

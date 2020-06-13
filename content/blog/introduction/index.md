@@ -1,9 +1,9 @@
 ---
 title: はじまり「の」はじまり
-date: "2020-06-07T00:00:00.000Z"
+date: "2020-06-13T00:00:00.000Z"
 description: "このメディア［思考］について"
-slug: self-introduction
-featureimage: "/introduction.png"
+slug: introduction
+featuredImage: think.png
 ---
 
 この［思考］というメディアは、  
