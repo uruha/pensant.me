@@ -1,13 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
 
-// node modules
-import "normalize.css/normalize.css";
-import "prismjs/themes/prism.css";
-
-// custom
-import "../../src/styles/global.css";
-
 const Layout = ({ location, title, pageContext, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
   let header;
