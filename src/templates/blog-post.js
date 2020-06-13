@@ -6,7 +6,6 @@ import SEO from "../components/seo";
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;
-  console.log(post.frontmatter.featuredImage);
 
   return (
     <Layout
