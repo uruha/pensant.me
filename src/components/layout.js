@@ -1,25 +1,25 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
 
 const Layout = ({ location, title, pageContext, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  let header
-  let footer
-  const { previous, next } = pageContext
+  const rootPath = `${__PATH_PREFIX__}/`;
+  let header;
+  let footer;
+  const { previous, next } = pageContext;
 
   if (location.pathname === rootPath) {
     header = (
       <div className="header --top">
         <h1 className="title">思考</h1>
       </div>
-    )
+    );
     footer = (
       <div className="footer">
         <span className="copyright">
           &copy; {new Date().getFullYear()} Kotaro Chiba
         </span>
       </div>
-    )
+    );
   } else {
     header = (
       <div className="header">
@@ -32,7 +32,7 @@ const Layout = ({ location, title, pageContext, children }) => {
           思考 / <span>{title}</span>
         </p>
       </div>
-    )
+    );
     footer = (
       <div className="footer --article">
         <span className="copyright">
@@ -57,7 +57,7 @@ const Layout = ({ location, title, pageContext, children }) => {
           </ul>
         </nav>
       </div>
-    )
+    );
   }
 
   return (
@@ -76,7 +76,7 @@ const Layout = ({ location, title, pageContext, children }) => {
         <footer>{footer}</footer>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

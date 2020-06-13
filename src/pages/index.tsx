@@ -34,11 +34,12 @@ const BlogIndex = ({ data, location, pageContext }: PageProps<Data>) => {
 
   return (
     <>
-      <SEO title="一覧" />
+      
       <Layout
         location={location}
         title={siteTitle}
         pageContext={pageContext}>
+        <SEO title="一覧" />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (

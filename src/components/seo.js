@@ -33,10 +33,11 @@ const SEO = ({ description, lang, meta, title, shareImagePath }) => {
   const imageUrl = shareImagePath
     ? `${site.siteMetadata.siteUrl}${shareImagePath}`
     : `${site.siteMetadata.siteUrl}${site.siteMetadata.social.image}`;
+  const titleTemplate = `${title} / ${site.siteMetadata.title}`;
 
   return (
     <Helmet
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={titleTemplate}
     >
       <html
         lang={lang}
@@ -49,7 +50,7 @@ const SEO = ({ description, lang, meta, title, shareImagePath }) => {
       <meta property="og:type" content="website" />
       <meta
         property="og:title"
-        content={`${title} | ${site.siteMetadata.title}`}
+        content={titleTemplate}
       />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={imageUrl} />
@@ -58,7 +59,7 @@ const SEO = ({ description, lang, meta, title, shareImagePath }) => {
       <meta name="twitter:site" content={title} />
       <meta
         name="twitter:title"
-        content={`${title} | ${site.siteMetadata.title}`}
+        content={titleTemplate}
       />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={imageUrl} />
