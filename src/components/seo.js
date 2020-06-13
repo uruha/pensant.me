@@ -36,7 +36,7 @@ const SEO = ({ description, lang, meta, title, shareImagePath }) => {
 
   return (
     <Helmet
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s / ${site.siteMetadata.title}`}
     >
       <html
         lang={lang}
