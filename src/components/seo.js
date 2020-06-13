@@ -36,42 +36,30 @@ const SEO = ({ description, lang, meta, title, shareImagePath }) => {
 
   return (
     <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: `${title} | ${site.siteMetadata.title}`,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          property: `og:image`,
-          content: imageUrl,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:site`,
-          content: site.siteMetadata.social.twitter,
-        },
-      ].concat(meta)}
-    />
+    >
+      <html lang={lang} />
+      <title>{title}</title>
+      <meta name="description" content={metaDescription} />
+      <meta name="image" content={imageUrl} />
+      <meta property="og:url" content={site.siteMetadata.siteUrl} />
+      <meta property="og:type" content="website" />
+      <meta
+        property="og:title"
+        content={`${title} | ${site.siteMetadata.title}`}
+      />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:image" content={imageUrl} />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:creator" content={site.siteMetadata.social.twitter} />
+      <meta name="twitter:site" content={site.siteMetadata.social.twitter} />
+      <meta
+        name="twitter:title"
+        content={`${title} | ${site.siteMetadata.title}`}
+      />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image" content={imageUrl} />
+    </Helmet>
   );
 };
 
