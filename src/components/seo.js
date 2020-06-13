@@ -38,7 +38,10 @@ const SEO = ({ description, lang, meta, title, shareImagePath }) => {
     <Helmet
       titleTemplate={`%s | ${site.siteMetadata.title}`}
     >
-      <html lang={lang} />
+      <html
+        lang={lang}
+        prefix="og: http://ogp.me/ns# website: http://ogp.me/ns/website#"
+      />
       <title>{title}</title>
       <meta name="description" content={metaDescription} />
       <meta name="image" content={imageUrl} />
@@ -52,7 +55,7 @@ const SEO = ({ description, lang, meta, title, shareImagePath }) => {
       <meta property="og:image" content={imageUrl} />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:creator" content={site.siteMetadata.social.twitter} />
-      <meta name="twitter:site" content={site.siteMetadata.social.twitter} />
+      <meta name="twitter:site" content={title} />
       <meta
         name="twitter:title"
         content={`${title} | ${site.siteMetadata.title}`}
