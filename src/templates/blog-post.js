@@ -8,25 +8,29 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;
 
   return (
-    <Layout
-      location={location}
-      title={post.frontmatter.title}
-      pageContext={pageContext}
-    >
+    <>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
         shareImagePath={post.frontmatter.featuredImage.childImageSharp.original
           .src}
       />
-      <article>
-        <header>
-          <h1>{post.frontmatter.title}</h1>
-          <time dateTime={post.frontmatter.date}>{post.frontmatter.date}</time>
-        </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
-      </article>
-    </Layout>
+      <Layout
+        location={location}
+        title={post.frontmatter.title}
+        pageContext={pageContext}
+      >
+        <article>
+          <header>
+            <h1>{post.frontmatter.title}</h1>
+            <time dateTime={post.frontmatter.date}>
+              {post.frontmatter.date}
+            </time>
+          </header>
+          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        </article>
+      </Layout>
+    </>
   );
 };
 

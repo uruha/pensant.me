@@ -33,36 +33,38 @@ const BlogIndex = ({ data, location, pageContext }: PageProps<Data>) => {
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout
-      location={location}
-      title={siteTitle}
-      pageContext={pageContext}>
+    <>
       <SEO title="一覧" />
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        return (
-          <article key={node.fields.slug}>
-            <header>
-              <h2>
-                <Link to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h2>
-              <time dateTime={node.frontmatter.date}>
-                {node.frontmatter.date}
-              </time>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-          </article>
-        )
-      })}
-    </Layout>
+      <Layout
+        location={location}
+        title={siteTitle}
+        pageContext={pageContext}>
+        {posts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug
+          return (
+            <article key={node.fields.slug}>
+              <header>
+                <h2>
+                  <Link to={node.fields.slug}>
+                    {title}
+                  </Link>
+                </h2>
+                <time dateTime={node.frontmatter.date}>
+                  {node.frontmatter.date}
+                </time>
+              </header>
+              <section>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: node.frontmatter.description || node.excerpt,
+                  }}
+                />
+              </section>
+            </article>
+          )
+        })}
+      </Layout>
+    </>
   )
 }
 
