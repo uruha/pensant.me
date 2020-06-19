@@ -1,11 +1,11 @@
 // Gatsby supports TypeScript natively!
-import * as React from "react";
-import { PageProps, Link, graphql } from "gatsby";
+import * as React from 'react';
+import { PageProps, Link, graphql } from 'gatsby';
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
-import { IndexDataQuery, MarkdownRemarkEdge } from "../../types/graphql-types";
+import { IndexDataQuery, MarkdownRemarkEdge } from '../../types/graphql-types';
 
 type BlogIndexIProps = {
   data: IndexDataQuery;
@@ -16,9 +16,9 @@ type BlogIndexIProps = {
 const BlogIndex: React.FC<BlogIndexIProps> = ({
   data,
   location,
-  pageContext,
+  pageContext
 }) => {
-  const siteTitle = data.site?.siteMetadata?.title || "思考";
+  const siteTitle = data.site?.siteMetadata?.title || '思考';
   const posts = data.allMarkdownRemark.edges;
 
   return (
@@ -42,7 +42,7 @@ const BlogIndex: React.FC<BlogIndexIProps> = ({
               <section>
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: node.frontmatter?.description || node.excerpt || "",
+                    __html: node.frontmatter?.description || node.excerpt || ''
                   }}
                 />
               </section>

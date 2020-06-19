@@ -1,13 +1,13 @@
-import * as React from "react";
-import { graphql } from "gatsby";
+import * as React from 'react';
+import { graphql } from 'gatsby';
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 import {
   NotFoundDataQuery,
-  MarkdownRemarkEdge,
-} from "../../types/graphql-types";
+  MarkdownRemarkEdge
+} from '../../types/graphql-types';
 
 type NotFoundIProps = {
   data: NotFoundDataQuery;
@@ -18,9 +18,9 @@ type NotFoundIProps = {
 const NotFoundPage: React.FC<NotFoundIProps> = ({
   data,
   location,
-  pageContext,
+  pageContext
 }) => {
-  const notFoundTitle = "ページが見つかりません";
+  const notFoundTitle = 'ページが見つかりません';
   const siteTitle = data.site?.siteMetadata?.title || notFoundTitle;
 
   return (

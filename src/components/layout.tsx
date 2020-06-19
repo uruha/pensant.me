@@ -1,7 +1,7 @@
-import * as React from "react";
-import { Link } from "gatsby";
+import * as React from 'react';
+import { Link } from 'gatsby';
 
-import { MarkdownRemarkEdge } from "../../types/graphql-types";
+import { MarkdownRemarkEdge } from '../../types/graphql-types';
 
 type LayoutIProps = {
   location: Location;
@@ -14,7 +14,7 @@ const Layout: React.FC<LayoutIProps> = ({
   location,
   title,
   pageContext,
-  children,
+  children
 }) => {
   // @ts-ignore
   const rootPath = `${__PATH_PREFIX__}/`;

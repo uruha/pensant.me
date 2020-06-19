@@ -3,36 +3,36 @@ module.exports = {
     title: `思考`,
     author: {
       name: `Kotaro Chiba`,
-      summary: `頭の中`,
+      summary: `頭の中`
     },
     description: `日々の思考を表現する場所。`,
     siteUrl: `https://pensant.me`,
     social: {
       twitter: `@ur_uha`,
-      image: `/logo.png`,
-    },
+      image: `/logo.png`
+    }
   },
   plugins: [
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [`Noto Serif JP\:400,700`],
-        display: "swap",
-      },
+        display: 'swap'
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
+        name: `blog`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/assets`,
-        name: `assets`,
-      },
+        name: `assets`
+      }
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -43,28 +43,28 @@ module.exports = {
             options: {
               maxWidth: 590,
               quality: 90,
-              linkImagesToOriginal: true,
-            },
+              linkImagesToOriginal: true
+            }
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
+              wrapperStyle: `margin-bottom: 1.0725rem`
+            }
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
-        ],
-      },
+          `gatsby-remark-smartypants`
+        ]
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-169280438-1`,
-      },
+        trackingId: `UA-169280438-1`
+      }
     },
     `gatsby-plugin-feed`,
     {
@@ -76,27 +76,27 @@ module.exports = {
         background_color: `#f8f4e6`,
         theme_color: `#0d0015`,
         display: `minimal-ui`,
-        icon: `content/assets/icon.png`,
-      },
+        icon: `content/assets/icon.png`
+      }
     },
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
         host: `https://pensant.me.com`,
         sitemap: `https://pensant.me.com/sitemap.xml`,
-        policy: [{ userAgent: `*`, allow: `/` }],
-      },
+        policy: [{ userAgent: `*`, allow: `/` }]
+      }
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
     {
-      resolve: "gatsby-plugin-graphql-codegen",
+      resolve: 'gatsby-plugin-graphql-codegen',
       options: {
-        fileName: `types/graphql-types.d.ts`,
-      },
-    },
+        fileName: `types/graphql-types.d.ts`
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-  ],
+  ]
 };

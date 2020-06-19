@@ -1,13 +1,13 @@
-import * as React from "react";
-import { graphql } from "gatsby";
+import * as React from 'react';
+import { graphql } from 'gatsby';
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 import {
   BlogPostBySlugQuery,
-  MarkdownRemarkEdge,
-} from "../../types/graphql-types";
+  MarkdownRemarkEdge
+} from '../../types/graphql-types';
 
 type BlogPostIProps = {
   data: BlogPostBySlugQuery;
@@ -18,7 +18,7 @@ type BlogPostIProps = {
 const BlogPostTemplate: React.FC<BlogPostIProps> = ({
   data,
   pageContext,
-  location,
+  location
 }) => {
   const post = data.markdownRemark;
 
@@ -43,7 +43,7 @@ const BlogPostTemplate: React.FC<BlogPostIProps> = ({
               {post?.frontmatter?.date}
             </time>
           </header>
-          <section dangerouslySetInnerHTML={{ __html: post?.html || "" }} />
+          <section dangerouslySetInnerHTML={{ __html: post?.html || '' }} />
         </article>
       </Layout>
     </>

@@ -5,11 +5,11 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import * as React from "react";
-import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
+import * as React from 'react';
+import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import { MetaDataQuery } from "../../types/graphql-types";
+import { MetaDataQuery } from '../../types/graphql-types';
 
 type SEOIProps = {
   description?: string | null;
@@ -21,9 +21,9 @@ type SEOIProps = {
 const SEO: React.FC<SEOIProps> = (
   { lang, title, description, shareImagePath } = {
     lang: `ja`,
-    title: "",
-    description: "",
-    shareImagePath: null,
+    title: '',
+    description: '',
+    shareImagePath: null
   }
 ) => {
   const { site }: MetaDataQuery = useStaticQuery(
@@ -44,12 +44,12 @@ const SEO: React.FC<SEOIProps> = (
     `
   );
 
-  const metaDescription = description || site?.siteMetadata?.description || "";
+  const metaDescription = description || site?.siteMetadata?.description || '';
   const imageUrl = shareImagePath
     ? `${site?.siteMetadata?.siteUrl}${shareImagePath}`
     : `${site?.siteMetadata?.siteUrl}${site?.siteMetadata?.social?.image}`;
   const titleTemplate = `${title} / ${site?.siteMetadata?.title}`;
-  const twitterAccount = `${site?.siteMetadata?.social?.twitter}` || "";
+  const twitterAccount = `${site?.siteMetadata?.social?.twitter}` || '';
 
   return (
     <Helmet titleTemplate={titleTemplate}>
