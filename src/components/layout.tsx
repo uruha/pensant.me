@@ -18,8 +18,8 @@ const Layout: React.FC<LayoutIProps> = ({
 }) => {
   // @ts-ignore
   const rootPath = `${__PATH_PREFIX__}/`;
-  let header;
-  let footer;
+  let header: React.ReactElement;
+  let footer: React.ReactElement;
   const { previous, next } = pageContext;
 
   if (location.pathname === rootPath) {
