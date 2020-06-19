@@ -1,33 +1,49 @@
-import React from "react";
+import * as React from "react";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
+import {
+  BlogPostBySlugQuery,
+  MarkdownRemarkEdge,
+} from "../../types/graphql-types";
+
+type BlogPostIProps = {
+  data: BlogPostBySlugQuery;
+  pageContext: MarkdownRemarkEdge;
+  location: Location;
+};
+
+const BlogPostTemplate: React.FC<BlogPostIProps> = ({
+  data,
+  pageContext,
+  location,
+}) => {
   const post = data.markdownRemark;
 
   return (
     <>
       <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-        shareImagePath={post.frontmatter.featuredImage.childImageSharp.original
-          .src}
+        title={post?.frontmatter?.title}
+        description={post?.frontmatter?.description || post?.excerpt}
+        shareImagePath={
+          post?.frontmatter?.featuredImage?.childImageSharp?.original?.src
+        }
       />
       <Layout
         location={location}
-        title={post.frontmatter.title}
+        title={post?.frontmatter?.title}
         pageContext={pageContext}
       >
         <article>
           <header>
-            <h1>{post.frontmatter.title}</h1>
-            <time dateTime={post.frontmatter.date}>
-              {post.frontmatter.date}
+            <h1>{post?.frontmatter?.title}</h1>
+            <time dateTime={post?.frontmatter?.date}>
+              {post?.frontmatter?.date}
             </time>
           </header>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <section dangerouslySetInnerHTML={{ __html: post?.html || "" }} />
         </article>
       </Layout>
     </>

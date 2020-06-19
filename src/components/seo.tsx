@@ -5,15 +5,30 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import * as React from "react";
+import { Helmet } from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 
-const SEO = ({ description, lang, title, shareImagePath }) => {
-  const { site } = useStaticQuery(
+import { MetaDataQuery } from "../../types/graphql-types";
+
+type SEOIProps = {
+  description?: string | null;
+  lang?: string;
+  title?: string | null;
+  shareImagePath?: string | null;
+};
+
+const SEO: React.FC<SEOIProps> = (
+  { lang, title, description, shareImagePath } = {
+    lang: `ja`,
+    title: "",
+    description: "",
+    shareImagePath: null,
+  }
+) => {
+  const { site }: MetaDataQuery = useStaticQuery(
     graphql`
-      query {
+      query MetaData {
         site {
           siteMetadata {
             title
@@ -27,13 +42,14 @@ const SEO = ({ description, lang, title, shareImagePath }) => {
         }
       }
     `
-  )
+  );
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = description || site?.siteMetadata?.description || "";
   const imageUrl = shareImagePath
-    ? `${site.siteMetadata.siteUrl}${shareImagePath}`
-    : `${site.siteMetadata.siteUrl}${site.siteMetadata.social.image}`
-  const titleTemplate = `${title} / ${site.siteMetadata.title}`
+    ? `${site?.siteMetadata?.siteUrl}${shareImagePath}`
+    : `${site?.siteMetadata?.siteUrl}${site?.siteMetadata?.social?.image}`;
+  const titleTemplate = `${title} / ${site?.siteMetadata?.title}`;
+  const twitterAccount = `${site?.siteMetadata?.social?.twitter}` || "";
 
   return (
     <Helmet titleTemplate={titleTemplate}>
@@ -49,26 +65,12 @@ const SEO = ({ description, lang, title, shareImagePath }) => {
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={imageUrl} />
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:creator" content={site.siteMetadata.social.twitter} />
+      <meta name="twitter:creator" content={twitterAccount} />
       <meta name="twitter:title" content={titleTemplate} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={imageUrl} />
     </Helmet>
-  )
-}
+  );
+};
 
-SEO.defaultProps = {
-  lang: `ja`,
-  meta: [],
-  description: ``,
-  shareImagePath: null,
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
-}
-
-export default SEO
+export default SEO;
