@@ -1,10 +1,25 @@
-import React from "react";
-import { Link } from "gatsby";
+import * as React from 'react';
+import { Link } from 'gatsby';
 
-const Layout = ({ location, title, pageContext, children }) => {
+import { MarkdownRemarkEdge } from '../../types/graphql-types';
+
+type LayoutIProps = {
+  location: Location;
+  title?: string | null;
+  pageContext: MarkdownRemarkEdge;
+  children: React.ReactNode;
+};
+
+const Layout: React.FC<LayoutIProps> = ({
+  location,
+  title,
+  pageContext,
+  children
+}) => {
+  // @ts-ignore
   const rootPath = `${__PATH_PREFIX__}/`;
-  let header;
-  let footer;
+  let header: React.ReactElement;
+  let footer: React.ReactElement;
   const { previous, next } = pageContext;
 
   if (location.pathname === rootPath) {
@@ -41,16 +56,16 @@ const Layout = ({ location, title, pageContext, children }) => {
         <nav>
           <ul className="article-navi">
             <li className="archive --next">
-              {previous && (
-                <Link to={previous.fields.slug} rel="prev">
-                  &lt; {previous.frontmatter.title}
+              {previous && previous.fields?.slug && (
+                <Link to={previous.fields?.slug} rel="prev">
+                  &lt; {previous.frontmatter?.title}
                 </Link>
               )}
             </li>
             <li className="archive --before">
-              {next && (
-                <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} &gt;
+              {next && next.fields?.slug && (
+                <Link to={next.fields?.slug} rel="next">
+                  {next.frontmatter?.title} &gt;
                 </Link>
               )}
             </li>
