@@ -10,7 +10,7 @@ import {
 } from '../../types/graphql-types';
 
 type NotFoundIProps = {
-  data: NotFoundDataQuery;
+  data?: NotFoundDataQuery;
   location: Location;
   pageContext: MarkdownRemarkEdge;
 };
@@ -20,15 +20,18 @@ const NotFoundPage: React.FC<NotFoundIProps> = ({
   location,
   pageContext
 }) => {
-  const notFoundTitle = 'ページが見つかりません';
-  const siteTitle = data.site?.siteMetadata?.title || notFoundTitle;
+  const notFoundTitle = '404';
 
   return (
     <>
       <SEO title={notFoundTitle} />
-      <Layout location={location} title={siteTitle} pageContext={pageContext}>
-        <h1>Not Found</h1>
-        <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      <Layout location={location} title={notFoundTitle} pageContext={pageContext}>
+        <h1>URIに対応するページは現在ございません。</h1>
+        <p>
+          今後の更新で表示されるかもしれませんが、<br/>
+          現在のところその予定はありません。
+        </p>
+        <p>悪しからず。</p>
       </Layout>
     </>
   );
