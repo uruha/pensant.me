@@ -100,6 +100,13 @@ p.title span {
 .document li {
   font-size: 1.25rem;
 }
+.document .gatsby-resp-image-wrapper {
+  width: 50vw;
+  height: auto;
+}
+.document img.gatsby-resp-image-image {
+  height: auto !important;
+}
 .footer {
   text-align: center;
 }
