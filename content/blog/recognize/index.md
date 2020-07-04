@@ -3,7 +3,7 @@ title: 「わかる」ということ
 date: '2020-07-04T00:00:00.000Z'
 description: 対象の解像度を探る
 slug: recognize
-# featuredImage: -
+featuredImage: recognize.jpg
 ---
 
 ## 「わかる」？
